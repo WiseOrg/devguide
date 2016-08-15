@@ -1,0 +1,12 @@
+---
+# Additional improwements
+- name: Add www-data to vagrant user group
+  user: name=www-data
+        state=present
+        append=yes
+        groups="{{ vagrant_user }}"
+
+- name: Create tmp directory
+  file: path="/home/vagrant/{{ vagrant_hostname }}/tmp"
+        state=directory
+        mode=0777
