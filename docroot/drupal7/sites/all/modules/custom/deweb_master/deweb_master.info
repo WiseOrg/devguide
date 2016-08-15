@@ -1,0 +1,5 @@
+name = Deweb Master module
+description = For Hook updates only.
+core = 7.x
+package = Deweb
+version = 7.x-1.0

@@ -1,0 +1,17 @@
+name = ckeditor-media feature
+description = Feature for configuring ckeditor with media module.
+core = 7.x
+package = Features
+version = 7.x-1.31
+dependencies[] = ckeditor
+dependencies[] = features
+dependencies[] = filter
+dependencies[] = media
+dependencies[] = media_wysiwyg
+features[ckeditor_profile][] = Advanced
+features[ckeditor_profile][] = CKEditor Global Profile
+features[ckeditor_profile][] = Full
+features[features_api][] = api:2
+features[filter][] = filtered_html
+features[filter][] = full_html
+features[filter][] = plain_text

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the devguide.local Article feature.
+ */
+
+include_once 'devguide_local_node_article.features.inc';

@@ -1,0 +1,4 @@
+name = Deweb Helper
+description = Module for site hooks
+package = Deweb
+core = 7.x

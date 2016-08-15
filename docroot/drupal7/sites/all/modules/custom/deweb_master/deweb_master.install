@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * All hook_update()'s.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function deweb_master_install() {
+  //deweb_master_update_7000();
+}
+
+/**
+ * Example oh enable modules and reverting features.
+ */
+function deweb_master_update_7000() {
+  // $module_list = array(
+  //   'feedback_form_submissions_feature',
+  // );
+  // module_enable($module_list);
+
+  // features_revert_module('module_name');
+}

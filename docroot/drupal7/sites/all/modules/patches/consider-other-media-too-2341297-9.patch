@@ -1,0 +1,32 @@
+diff --git a/plugins/media/library.js b/plugins/media/library.js
+index 1295ad5..eeb59cc 100644
+--- a/plugins/media/library.js
++++ b/plugins/media/library.js
+@@ -82,20 +82,21 @@
+        * Going forward, if we don't care about supporting other editors
+        * we can use the fakeobjects plugin to ckeditor to provide cleaner
+        * transparency between what Drupal will output <div class="field..."><img></div>
+-       * instead of just <img>, for now though, we're going to remove all the stuff surrounding the images.
++       * instead of just <img>, for now though, we're going to remove all
++       * the stuff surrounding the media elements.
+        *
+        * @param String formattedMedia
+-       *  Element containing the image
++       *  Element containing the th media
+        *
+-       * @return HTML of <img> tag inside formattedMedia
++       * @return HTML of media tag inside formattedMedia
+        */
+     stripDivs: function (formattedMedia) {
+-      // Check to see if the image tag has divs to strip
++      // Check to see if the media tag has divs to strip
+       var stripped = null;
+-      if ($(formattedMedia).is('img')) {
++      if ($(formattedMedia).is('img, iframe, video, audio')) {
+         stripped = this.outerHTML($(formattedMedia));
+       } else {
+-        stripped = this.outerHTML($('img', $(formattedMedia)));
++        stripped = this.outerHTML($('img, iframe, video, audio', $(formattedMedia)));
+       }
+       // This will fail if we pass the img tag without anything wrapping it, like we do when re-enabling ckeditor
+       return stripped;

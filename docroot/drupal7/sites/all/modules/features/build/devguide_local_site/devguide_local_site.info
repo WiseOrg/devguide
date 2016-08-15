@@ -1,0 +1,7 @@
+name = F-build Site
+core = 7.x
+package = Configuration
+dependencies[] = admin_menu
+dependencies[] = module_filter
+dependencies[] = search
+features[features_api][] = api:2

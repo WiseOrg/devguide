@@ -1,0 +1,12 @@
+name = F-build Media
+core = 7.x
+package = Configuration
+dependencies[] = features
+dependencies[] = image
+features[features_api][] = api:2
+features[filter][] = filtered_html
+features[filter][] = full_html
+features[filter][] = plain_text
+features[image][] = large
+features[image][] = medium
+features[image][] = thumbnail

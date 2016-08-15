@@ -1,0 +1,7 @@
+name = F-build Basic page
+core = 7.x
+package = Content
+dependencies[] = devguide_local_fields
+features[features_api][] = api:2
+features[field_instance][] = node-page-body
+features[node][] = page

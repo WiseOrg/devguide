@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function deweb_helper_form_alter(&$form, &$form_state, $form_id) {
+ // Insert code here...
+}
