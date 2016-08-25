@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the devguide.local Basic page feature.
- */
-
-include_once 'devguide_local_node_page.features.inc';

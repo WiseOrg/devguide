@@ -1,0 +1,44 @@
+---
+language: python
+python: "2.7"
+
+env:
+  - SITE=test.yml
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y curl
+
+install:
+  # Install Ansible.
+  - pip install ansible
+
+  # Add ansible.cfg to pick up roles path.
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+
+  # Install required dependencies.
+  - ansible-galaxy install geerlingguy.daemonize
+
+script:
+  # Check the role/playbook's syntax.
+  - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
+
+  # Run the role/playbook with ansible-playbook.
+  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
+  # Make sure mailhog is listening on ports 1025 and 8025.
+  - sudo netstat -taupen | grep '1025.*mailhog'
+  - sudo netstat -taupen | grep '8025.*mailhog'
+
+  # Send an email via ssmtp.
+  - cat tests/message | ssmtp johndoe@example.com
+
+  # Test retrieving messages via MailHog API.
+  - curl http://localhost:8025/api/v2/messages | grep id
