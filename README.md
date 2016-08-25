@@ -51,8 +51,8 @@ Note on versions: *Please make sure you're running the latest stable version of 
   1. Download this project and put it wherever you want.
   2. Change file config.yml if you need to.
   4. Open Terminal, cd to this directory (containing the `Vagrantfile` and this README file).
-  5. Install Ansible Galaxy roles required for this VM:
-    - $ sudo ansible-galaxy install -r provisioning/requirements.txt --force
+  5. Copy Ansible Galaxy roles required for this VM:
+    
   6. Now you can run vagrant:
     - $ vagrant up
 
